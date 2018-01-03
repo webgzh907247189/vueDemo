@@ -1,0 +1,36 @@
+<template>
+  <div class="hello">
+      <ul>
+        <li v-for='item in textArr'>{{item}}</li>
+      </ul>
+      <p>父组件传递数据：{{desNum}}</p>
+      <p>{{textNum}}</p>
+      <button @click='addNum'>+</button>
+      <button v-on:click='giveBrother'>-</button>
+  </div>
+</template>
+
+<script>
+import Bus from '@/bus/bus.js'
+export default {
+  name: 'Test',
+  props: ['textNum','textArr','desNum'],
+
+  methods: {
+    addNum(){
+      this.$emit('addNumAdd')
+    },
+    giveBrother(){
+      Bus.$emit('brother',this.textNum)
+    },
+    reduceNum(){
+      this.$emit('reduceNumReduce')
+    }
+  }
+}
+</script>
+
+
+<style scoped>
+
+</style>
