@@ -1,13 +1,20 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <img :src="'/static/logo.'+ext">
+    <img :src="`/static/logo.${ext}`">
     <router-view/> <!--  一级路由，载体 -->
+    <router-view name='Test'></router-view>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'app'
+  name: 'app',
+  data(){
+    return{
+      ext: 'png'
+    }
+  }
 }
 </script>
 

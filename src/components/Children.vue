@@ -2,7 +2,7 @@
   <div class="hello">
       <p>
         children路由
-        <router-link to='/'>router-link 跳转嵌套路由</router-link>
+        <router-link to='/'>router-link 跳转嵌套路由  (跳转到首页)</router-link>
       </p>
   </div>
 </template>

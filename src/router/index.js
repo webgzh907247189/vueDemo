@@ -4,6 +4,7 @@ import HelloWorld from '@/components/HelloWorld'
 import TextDes from '@/components/Text'
 import Children from '@/components/Children'
 import ChildrenTwo from '@/components/ChildrenTwo'
+import Test from '@/components/TestTwo'
 
 Vue.use(Router)
 
@@ -13,7 +14,10 @@ export default new Router({
     {
       path: '/',
       name: 'HelloWorld',
-      component: HelloWorld
+      components: {
+        default: HelloWorld,
+        Test: Test
+      }
     },
     {
     	path: '/textdes/:id',
@@ -31,6 +35,11 @@ export default new Router({
           component: ChildrenTwo
         }
       ]
+    },
+    {
+      path: '/test',
+      name: 'Test',
+      component: Test
     }
   ]
 })

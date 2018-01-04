@@ -5,14 +5,22 @@
     <Test :text-num='num' v-on:addNumAdd='showNum' v-on:reduceNumReduce='jianNum' :text-arr= 'arr' desNum='20'></Test>
     <Brother></Brother>
     <div>
-      <p @click='jump'>this.$router.push() 跳转到嵌套路由</p>
+      <p @click='jump'>this.$router.push() 跳转到嵌套路由(嵌套路由的父组件)</p>
+      <router-link v-bind:to="{name: 'TextDes',params: {id: 99999999}}">跳转到嵌套路由(嵌套路由的父组件)</router-link>
+      <!-- <router-link :to="{name: 'TextDes',params: {id: 99999999}}">跳转到嵌套路由(嵌套路由的父组件)</router-link> -->
     </div>
+    <page-test>
+      <div  slot='bread'>插槽测试</div>
+      <div  slot='bread'>可扩展</div>
+      <div  slot='1111bread'>插槽名字不一样</div>
+    </page-test>
   </div>
 </template>
 
 <script>
 import Test from './Test'
 import Brother from './Brother'
+import PageTest from './PageTest'
 
 export default {
   name: 'HelloWorld',
@@ -36,7 +44,8 @@ export default {
   },
   components: {
     Test,
-    Brother
+    Brother,
+    PageTest
   }
 }
 </script>
