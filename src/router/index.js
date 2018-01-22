@@ -5,6 +5,7 @@ import TextDes from '@/components/Text'
 import Children from '@/components/Children'
 import ChildrenTwo from '@/components/ChildrenTwo'
 import Test from '@/components/TestTwo'
+import Shop from '@/components/Shopping'
 
 Vue.use(Router)
 
@@ -40,6 +41,11 @@ export default new Router({
       path: '/test',
       name: 'Test',
       component: Test
+    },
+    {
+      path: '/shopping',
+      name: 'Shop',
+      component: Shop
     }
   ]
 })

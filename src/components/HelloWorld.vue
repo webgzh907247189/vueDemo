@@ -2,13 +2,15 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
-    <Test :text-num='num' v-on:addNumAdd='showNum' v-on:reduceNumReduce='jianNum' :text-arr= 'arr' desNum='20'></Test>
+    <Test :text-num='num' @addNumAdd='function(){num++}' v-on:reduceNumReduce='jianNum' :text-arr= 'arr' desNum='20'></Test>
     <Brother></Brother>
     <div>
-      <p @click='jump'>this.$router.push() 跳转到嵌套路由(嵌套路由的父组件)</p>
+      <p v-on:click='jump'>this.$router.push() 跳转到嵌套路由(嵌套路由的父组件)</p>
       <router-link v-bind:to="{name: 'TextDes',params: {id: 99999999}}">跳转到嵌套路由(嵌套路由的父组件)</router-link>
       <!-- <router-link :to="{name: 'TextDes',params: {id: 99999999}}">跳转到嵌套路由(嵌套路由的父组件)</router-link> -->
     </div>
+     <div v-if="Math.random()>0.5">afdfdsg g</div>
+     <div v-else>AAAAAA</div>
     <page-test>
       <div  slot='bread'>插槽测试</div>
       <div  slot='bread'>可扩展</div>
