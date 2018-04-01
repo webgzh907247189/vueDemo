@@ -3,7 +3,7 @@ let path = require('path')
 let bodyParser = require('body-parser')
 let good = require('./controller/good')
 
-let  port = 9000
+let port = 9000
 let app = express()
 
 app.use(bodyParser.json({type: 'application/json'}))
