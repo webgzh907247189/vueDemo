@@ -271,3 +271,8 @@ export default {
      注意 vm.$set() 的用法  (没有在data里面的变量，无法实现响应式监听，需要手动set一下)
      指令里面不要写this，vue的实例里面使用this   (@click="currentIndex=index")
 -->
+
+<!-- https://segmentfault.com/a/1190000014085613
+https://mp.weixin.qq.com/s/gFI6JrnMjTdBXXoclY49tg
+https://blog.csdn.net/smartsunsing/article/details/78529374
+https://www.baidu.com/s?wd=vue%20%E5%BC%95%E5%85%A5%E5%A4%96%E9%83%A8css&rsv_spt=1&rsv_iqid=0xef5c9a520001003b&issp=1&f=8&rsv_bp=1&rsv_idx=2&ie=utf-8&rqlang=cn&tn=baiduhome_pg&rsv_enter=1&oq=vue%25E5%2586%2599%25E4%25BA%2586style%25E4%25B8%258D%25E7%2594%259F%25E6%2595%2588&rsv_t=11ffutpT0slKczw1GvD33B8yVpzW1WYZKy9g%2FS0NkdTnx23g%2FtAXhSjOJLXHmky7uiUv&inputT=13358&rsv_sug3=63&rsv_sug1=43&rsv_sug7=100&rsv_pq=e2e05dfd0000f5fd&_sglink=1&bs=vue%E5%86%99%E4%BA%86style%E4%B8%8D%E7%94%9F%E6%95%88 -->
