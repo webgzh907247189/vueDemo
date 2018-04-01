@@ -6,6 +6,7 @@ import Children from '@/components/Children'
 import ChildrenTwo from '@/components/ChildrenTwo'
 import Test from '@/components/TestTwo'
 import Shop from '@/components/Shopping'
+import ShopCar from '@/components/ShopCar'
 
 Vue.use(Router)
 
@@ -46,6 +47,11 @@ export default new Router({
       path: '/shopping',
       name: 'Shop',
       component: Shop
+    },
+    {
+      path: '/shop-car',
+      name: 'ShopCar',
+      component: ShopCar
     }
   ]
 })
