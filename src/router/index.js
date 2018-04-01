@@ -7,6 +7,8 @@ import ChildrenTwo from '@/components/ChildrenTwo'
 import Test from '@/components/TestTwo'
 import Shop from '@/components/Shopping'
 import ShopCar from '@/components/ShopCar'
+import ShopCarAddress from '@/components/ShopCarAddress'
+
 
 Vue.use(Router)
 
@@ -52,6 +54,11 @@ export default new Router({
       path: '/shop-car',
       name: 'ShopCar',
       component: ShopCar
+    },
+    {
+      path: '/address',
+      name: 'address',
+      component: ShopCarAddress
     }
   ]
 })

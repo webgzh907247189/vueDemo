@@ -50,7 +50,7 @@
                     <li v-for="item in productList">
                       <div class="cart-tab-1">
                         <div class="cart-item-check">
-                          <a href="javascript:void 0" class="item-check-btn" v-bind:class="{'check': item.checked}" @click="selectedProduct(item)">
+                          <a href="javascript:void 0" class="item-check-btn"v-bind:class="{'check': item.checked}" @click="selectedProduct(item)">
                             <svg class="icon icon-ok"><use xlink:href="#icon-ok"></use></svg>
                           </a>
                         </div>
@@ -67,9 +67,9 @@
                           </dl>
                         </div>
                       </div>
-                      <div class="cart-tab-2">
+<!--                       <div class="cart-tab-2">
                         <div class="item-price">{{ item.productPrice | formatMoney}}</div>
-                      </div>
+                      </div> -->
                       <div class="cart-tab-3">
                         <div class="item-quantity">
                           <div class="select-self select-self-open">
@@ -82,9 +82,9 @@
                           <div class="item-stock">有货</div>
                         </div>
                       </div>
-                      <div class="cart-tab-4">
+<!--                       <div class="cart-tab-4">
                         <div class="item-price-total">{{ item.productPrice*item.productQuantity | money('元')}}</div>
-                      </div>
+                      </div> -->
                       <div class="cart-tab-5">
                         <div class="cart-item-operation">
                           <a href="javascript:void 0" class="item-edit-btn" @click="delConfirm(item)">
@@ -98,7 +98,7 @@
               </div>
 
               <!-- footer -->
-              <div class="cart-foot-wrap">
+<!--               <div class="cart-foot-wrap">
                 <div class="cart-foot-l">
                   <div class="item-all-check">
                     <a href="javascript:void 0">
@@ -119,15 +119,15 @@
                     Item total: <span class="total-price">{{totalMoney | money('元')}}</span>
                   </div>
                   <div class="next-btn-wrap">
-                    <a href="javascript:void(0);" class="btn btn--red" style="width: 200px" @click="jump()">结账</a>
+                    <a href="address.html" class="btn btn--red" style="width: 200px">结账</a>
                   </div>
                 </div>
-              </div>
+              </div> -->
 
             </div>
           </div>
 
-          <div class="md-modal modal-msg md-modal-transition" id="showModal" v-bind:class="{'md-show':delFlag}">
+<!--           <div class="md-modal modal-msg md-modal-transition" id="showModal" v-bind:class="{'md-show':delFlag}">
             <div class="md-modal-inner">
               <div class="md-top">
                 <button class="md-close" @click="delFlag = false">关闭</button>
@@ -142,9 +142,9 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
 
-          <div class="md-overlay" v-if="delFlag"></div>
+          <!-- <div class="md-overlay" v-if="delFlag"></div> -->
 
         </div>
     </div>
@@ -158,11 +158,7 @@ export default {
   data(){
     return {
       productList: [],
-      checkAllFlag: false,
-      totalMoney: 0,
-      checkAllFlag: false,
-      delFlag: false,
-      deleteItem: ''
+      checkAllFlag: false
     }
   },
   methods: {
@@ -176,70 +172,11 @@ export default {
         }
       })
       .then((res)=>{
-        this.productList = res.data.result.list
+        this.productList = res.data.data
       })
       .catch((err)=>{
         console.log(err)
       })
-    },
-
-    changeMoney(item,num){
-      if(item.productQuantity == 1 && num == -1){
-        return
-      }
-      num == 1 && item.productQuantity++ || item.productQuantity--
-
-      this.calcMoney()
-    },
-
-    selectedProduct(item){
-      if(typeof(item.checked) == 'undefined'){
-        this.$set(item,'checked',true)    
-      }else{
-        item.checked = !item.checked
-      }
-
-      this.checkAllFlag = this.productList.every((item)=>{
-        return item.checked == true
-      })
-
-      this.calcMoney()
-    },
-
-    checkAll(flag){
-      this.checkAllFlag = !this.checkAllFlag
-      this.productList.map((item,index)=>{
-        return item.checked = this.checkAllFlag
-      })
-
-      this.calcMoney()
-    },
-
-    calcMoney(){
-      this.totalMoney = 0
-
-      this.totalMoney = this.productList.reduce((result,item)=>{
-        if(item.checked){
-          result += item.productPrice * item.productQuantity 
-        }
-        return result
-      },this.totalMoney)
-    },
-
-    delConfirm(item){
-      this.delFlag = true
-      this.deleteItem = item
-    },
-
-    delProduct(){
-      let itemKey = this.productList.indexOf(this.deleteItem)
-      this.productList.splice(itemKey,1)
-      this.calcMoney()
-      this.delFlag = false
-    },
-
-    jump(){
-      this.$router.push({path: '/address',query: {name: '111'}})
     }
   },
   mounted(){
@@ -249,12 +186,10 @@ export default {
 </script>
 
 <style>
- /* @import '../css/reset.css';
+  @import '../css/reset.css';
   @import '../css/base.css'
   @import '../css/checkout.css'
   @import '../css/modal.css'
-  加载不了css
-  */
   
   .hello {
     color: red;
@@ -265,9 +200,3 @@ export default {
     text-align: center;
   }
 </style>
-
-
-<!-- v-bind:class 其实是对原有class进行添加,
-     注意 vm.$set() 的用法  (没有在data里面的变量，无法实现响应式监听，需要手动set一下)
-     指令里面不要写this，vue的实例里面使用this   (@click="currentIndex=index")
--->

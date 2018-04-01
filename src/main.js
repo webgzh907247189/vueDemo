@@ -6,12 +6,27 @@ import router from './router'
 import axios from 'axios'
 import VueLazyLoad  from 'vue-lazyload'
 
+// import './css/base.css'
+// import './css/checkout.css'
+// import './css/modal.css'
+// import './css/reset.css'
+
+import './../static/base.css'
+import './../static/checkout.css'
+import './../static/modal.css'
+import './../static/reset.css'
+
 Vue.use(VueLazyLoad,{
 	loading: '/static/nv.jpg'
 })
 Vue.prototype.axios = axios
 Vue.config.productionTip = false
-
+Vue.filter('formatMoney', function (value) {
+	return `￥ ${value.toFixed(2)}`
+})
+Vue.filter('money',(value,type)=>{
+	return `￥ ${value.toFixed(2)}${type}`
+})
 
 /* eslint-disable no-new */
 new Vue({
