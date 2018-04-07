@@ -5,6 +5,7 @@ import TextDes from '@/components/Text'
 import Children from '@/components/Children'
 import ChildrenTwo from '@/components/ChildrenTwo'
 import Test from '@/components/TestTwo'
+import Testt from '@/components/Test'
 import Shop from '@/components/Shopping'
 import ShopCar from '@/components/ShopCar'
 import ShopCarAddress from '@/components/ShopCarAddress'
@@ -59,6 +60,11 @@ export default new Router({
       path: '/address',
       name: 'address',
       component: ShopCarAddress
+    },
+    {
+      path: '/testt',
+      name: 'Testt',
+      component: Testt
     }
   ]
 })

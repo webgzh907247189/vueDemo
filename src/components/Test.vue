@@ -2,9 +2,10 @@
   <div class="hello">
       <ul>
         <li v-for='item in textArr'>{{item}}</li>
+        <input v-bind="$attrs"/>
       </ul>
       <p>父组件传递数据：{{desNum}}</p>
-      <p>{{textNum}}</p>
+      <p>{{textNum}}textNum</p>
       <button @click='addNum'>+(自增)</button>
       <button v-on:click='giveBrother'>-</button>
   </div>

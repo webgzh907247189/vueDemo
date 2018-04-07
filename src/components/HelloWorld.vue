@@ -2,7 +2,7 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
-    <Test :text-num='num' @addNumAdd='function(){num++}' v-on:reduceNumReduce='jianNum' :text-arr= 'arr' desNum='20'></Test>
+    <Test :text-num='num' @addNumAdd='function(){num++}' v-on:reduceNumReduce='jianNum' :text-arr= 'arr' desNum='20' placeholder="请填写表单($attrs继承)"></Test>
     <Brother></Brother>
     <div>
       <p v-on:click='jump'>this.$router.push() 跳转到嵌套路由(嵌套路由的父组件)</p>
