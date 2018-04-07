@@ -239,6 +239,7 @@ export default {
   computed: {
     filterAddress: {
       get(){
+        console.log('执行了filterAddress')
         return this.addressList.slice(0,this.limitNumber)
       }
     }
@@ -250,6 +251,14 @@ export default {
     this.$nextTick(()=>{
       console.log('111111')
     })
+  },
+  watch: {
+    addressList: function(val,oldval){
+      console.log(val,oldval,'watch  addressList')
+    },
+    shippingMethod: function(val,oldval){
+      console.log(val,oldval,'watch  shippingMethod')
+    }
   }
 }
 </script>

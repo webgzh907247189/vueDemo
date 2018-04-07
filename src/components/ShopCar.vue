@@ -270,6 +270,7 @@ export default {
 <!-- v-bind:class 其实是对原有class进行添加,
      注意 vm.$set() 的用法  (没有在data里面的变量，无法实现响应式监听，需要手动set一下)
      指令里面不要写this，vue的实例里面使用this   (@click="currentIndex=index")
+     watch
 -->
 
 <!-- https://segmentfault.com/a/1190000014085613
