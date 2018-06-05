@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
       <ul>
-        <li v-for='item in textArr'>{{item}}</li>
+        <li v-for='item in textArr'>{{item.name}}</li>
         <input v-bind="$attrs"/>
       </ul>
       <p>父组件传递数据：{{desNum}}</p>
