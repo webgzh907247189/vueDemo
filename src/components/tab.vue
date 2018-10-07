@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div :class="tabCls(item)" v-for="(item,index) in navList" @click="handleChange(index)">
+        <div :class="tabCls(item)" v-for="(item,index) in navList" @click="handleChange(index)" :key=index>
             {{item.label}}
         </div>
         <div class="tab-content">
