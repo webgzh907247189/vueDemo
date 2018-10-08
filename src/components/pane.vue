@@ -1,7 +1,9 @@
 <template>
     <div class="hello" v-show="show">
         <slot>
+            <div>??????</div>
         </slot>
+        <div>!!!!!</div>
     </div>
 </template>
 
