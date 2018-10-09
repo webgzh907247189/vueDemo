@@ -15,8 +15,11 @@
 import Bus from '@/bus/bus.js'
 export default {
   name: 'Test',
-  props: ['textNum','textArr','desNum'],
-
+  props: {
+    textNum: String,
+    textArr: Array,
+    desNum: String
+  },
   methods: {
     addNum(){
       this.$emit('addNumAdd')
