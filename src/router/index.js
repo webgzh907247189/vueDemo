@@ -9,6 +9,8 @@ import Testt from '@/components/Test'
 import Shop from '@/components/Shopping'
 import ShopCar from '@/components/ShopCar'
 import ShopCarAddress from '@/components/ShopCarAddress'
+import componentInputParent from '@/components/componentInputParent'
+import containerTab from '@/components/containerTab'
 
 
 Vue.use(Router)
@@ -65,6 +67,16 @@ export default new Router({
       path: '/testt',
       name: 'Testt',
       component: Testt
-    }
+    },
+    {
+      path: '/componentInputParent',
+      name: 'componentInputParent',
+      component: componentInputParent
+    },
+    {
+      path: '/containerTab',
+      name: 'containerTab',
+      component: containerTab
+    },
   ]
 })

@@ -2,7 +2,7 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
-    <Test :text-num='num' @addNumAdd='function(){num++}' v-on:reduceNumReduce='jianNum' :text-arr= 'arr' desNum='20' placeholder="请填写表单($attrs继承)"></Test>
+    <Test :text-num='num' @addNumAdd='showNum' v-on:reduceNumReduce='jianNum' :text-arr= 'arr' desNum='20' placeholder="请填写表单($attrs继承)"></Test>
     <Brother></Brother>
     <div>
       <p v-on:click='jump'>this.$router.push() 跳转到嵌套路由(嵌套路由的父组件)</p>
@@ -29,13 +29,20 @@ export default {
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
-      arr: ['aa','bb','cc'],
+      arr: [{name: 'aa'},{name: 'bb'},{name: 'cc'}],
       num: '10'
     }
   },
   methods: {
     showNum(){
-      this.num++
+      // this.num++,
+
+      this.$set(this.arr,1, {
+        name: '11'
+      })
+      // this.arr[1] = {name: '11'}
+
+      console.log(this.arr,'?')
     },
     jianNum(){
       this.num--
