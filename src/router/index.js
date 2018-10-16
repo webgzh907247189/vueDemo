@@ -13,6 +13,7 @@ import ComponentInputParent from '@/components/componentInputParent'
 import ContainerTab from '@/components/containerTab'
 import ClickOutside from '@/components/clickOutside'
 import link from '@/components/link'
+import functional from '@/components/functional'
 
 
 Vue.use(Router)
@@ -90,5 +91,10 @@ export default new Router({
       name: 'link',
       component: link
     },
+    {
+      path: '/functional',
+      name: 'functional',
+      component: functional
+    }
   ]
 })
