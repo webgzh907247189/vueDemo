@@ -12,6 +12,7 @@ import ShopCarAddress from '@/components/ShopCarAddress'
 import ComponentInputParent from '@/components/componentInputParent'
 import ContainerTab from '@/components/containerTab'
 import ClickOutside from '@/components/clickOutside'
+import link from '@/components/link'
 
 
 Vue.use(Router)
@@ -83,6 +84,11 @@ export default new Router({
       path: '/clickOutside',
       name: 'clickOutside',
       component: ClickOutside
-    }
+    },
+    {
+      path: '/link',
+      name: 'link',
+      component: link
+    },
   ]
 })
