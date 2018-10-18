@@ -18,5 +18,12 @@ Vue.component('test', {
       <p>{data.sex}</p>
     </div>
   },
-  props: ['data']
+  props: {
+    'data': {
+      type: Object,
+      default: function(){
+        return {}
+      }
+    }
+  }
 })

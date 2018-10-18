@@ -14,7 +14,7 @@ import ContainerTab from '@/components/containerTab'
 import ClickOutside from '@/components/clickOutside'
 import link from '@/components/link'
 import functional from '@/components/functional'
-
+import talklist from '@/components/talklist'
 
 Vue.use(Router)
 
@@ -95,6 +95,11 @@ export default new Router({
       path: '/functional',
       name: 'functional',
       component: functional
-    }
+    },
+    {
+      path: '/talklist',
+      name: 'talklist',
+      component: talklist
+    },
   ]
 })

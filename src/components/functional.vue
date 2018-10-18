@@ -102,6 +102,7 @@ export default {
                 this.data = {
                     type,
                     url: 'http://vjs.zencdn.net/v/oceans.mp4'
+                    // url: ''
                 }
             }else{
                 this.data = {
@@ -113,6 +114,12 @@ export default {
     },
     mounted(){
         this.btnclick('img')
+    },
+    beforeDestroy(){
+        console.log('beforeDestroy')
+    },
+    destroyed(){
+        console.log('destroyed')
     }
 }
 </script>
