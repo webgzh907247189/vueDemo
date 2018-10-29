@@ -15,6 +15,7 @@ import ClickOutside from '@/components/clickOutside'
 import link from '@/components/link'
 import functional from '@/components/functional'
 import talklist from '@/components/talklist'
+import table from '@/components/table'
 
 Vue.use(Router)
 
@@ -101,5 +102,10 @@ export default new Router({
       name: 'talklist',
       component: talklist
     },
+    {
+      path: '/table',
+      name: 'table',
+      component: table
+    }
   ]
 })
