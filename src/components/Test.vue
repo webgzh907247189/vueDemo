@@ -24,6 +24,7 @@
 
         <div>
           <p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+          <div>var a = (/(^-?[0-9]+\.{1}\d+$)|(^-?[1-9][0-9]*$)|(^-?0{1}$)/)</div>
           <input type="radio" v-model="radioPicked" :value="radioValue">
           <label>单选按钮测试</label>
           <p>radioPicked -> {{radioPicked}}</p>
