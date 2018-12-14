@@ -4,7 +4,7 @@ import HelloWorld from '@/components/HelloWorld'
 import TextDes from '@/components/Text'
 import Children from '@/components/Children'
 import ChildrenTwo from '@/components/ChildrenTwo'
-import Test from '@/components/TestTwo'
+import TestTwo from '@/components/TestTwo'
 import Testt from '@/components/Test'
 import Shop from '@/components/Shopping'
 import ShopCar from '@/components/ShopCar'
@@ -27,7 +27,7 @@ export default new Router({
       name: 'HelloWorld',
       components: {
         default: HelloWorld,
-        Test: Test
+        Test: TestTwo
       }
     },
     {
@@ -48,9 +48,9 @@ export default new Router({
       ]
     },
     {
-      path: '/test',
-      name: 'Test',
-      component: Test
+      path: '/TestTwo',
+      name: 'TestTwo',
+      component: TestTwo
     },
     {
       path: '/shopping',
