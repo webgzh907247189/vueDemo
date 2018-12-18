@@ -182,6 +182,7 @@
 </template>
 
 <script>
+import {getCookie} from '@/util/index'
 
 export default {
   name: 'ShopCarAddress',
@@ -246,6 +247,9 @@ export default {
   },
   created(){
     this.getData()
+    
+    let getCookies = getCookie()
+    console.log(getCookies,'getCookies')
   },
   mounted(){
     this.$nextTick(()=>{

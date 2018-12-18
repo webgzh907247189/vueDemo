@@ -50,7 +50,7 @@ export default new Router({
     {
       path: '/TestTwo',
       name: 'TestTwo',
-      component: TestTwo
+      component: (resolve) => require(['@/components/TestTwo'],resolve)
     },
     {
       path: '/shopping',

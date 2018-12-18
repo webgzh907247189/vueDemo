@@ -12,6 +12,7 @@
 <script>
 import Vue from 'vue'
 import Component from 'vue-class-component'
+import {setCookie} from '@/util/index'
 
 @Component({
   /** props默认数据 */
@@ -40,7 +41,9 @@ export default class Test extends Vue{
     this.axios.interceptors.response.use((response)=>{
       console.log('拦截请求在response阶段')
       return response
-    })
+    }),
+
+    setCookie()
   }
 
   /**computed属性 */
@@ -51,6 +54,7 @@ export default class Test extends Vue{
   /** methods */
   @windes
   getAxios(){
+    console.log(document.cookie,'111')
     this.axios.get('/api/data',{
       params: {
         userId: '213'

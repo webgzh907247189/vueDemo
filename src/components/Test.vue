@@ -60,9 +60,25 @@
 
 <script>
 import Bus from '@/bus/bus.js'
+
+var minxin =  {
+  created(){
+    console.log('这是mixin的函数')
+  },
+  methods: {
+    addNum(){
+      console.log('mixin的数据')
+    }
+  }
+}
+
 export default {
   name: 'Test',
   props: ['textNum','textArr','desNum'],
+  mixins: [minxin],
+  created(){
+    console.log('这是组件的函数')
+  },
   data(){
     return {
       test: '',
