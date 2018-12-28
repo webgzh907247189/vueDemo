@@ -14,7 +14,7 @@
     <page-test>
       <div  slot='bread'>插槽测试</div>
       <div  slot='bread'>可扩展</div>
-      <div  slot='1111bread'>插槽名字不一样</div>
+      <div  slot='1111bread'>插槽名字不一样{{a}}</div>
     </page-test>
   </div>
 </template>
@@ -24,6 +24,8 @@ import Test from './Test'
 import Brother from './Brother'
 import PageTest from './PageTest'
 
+import dayjs from 'dayjs'
+
 export default {
   name: 'HelloWorld',
   data () {
@@ -31,6 +33,13 @@ export default {
       msg: 'Welcome to Your Vue.js App',
       arr: [{name: 'aa'},{name: 'bb'},{name: 'cc'}],
       num: '10'
+    }
+  },
+  computed: {
+    a(){
+      console.log(dayjs().format())
+      window.dayjs = dayjs
+      return dayjs().format();
     }
   },
   methods: {

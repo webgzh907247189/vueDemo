@@ -6,6 +6,7 @@
       <button @click='jump'>jump(跳转到首页)</button>
       <div>
         <p><router-link to='/textdes/566/children'>router-link跳转到嵌套路由 children</router-link></p>
+        <p><router-link to='/TestTwo'>router-link跳转到嵌套路由 TestTwo</router-link></p>
         <p @click='jumpTwo'>this.$router.push() 跳转到嵌套路由children-two</p>
       </div>
       <router-view></router-view>  <!-- 路由载体,因为存在子路由，所以需要路由载体 -->
