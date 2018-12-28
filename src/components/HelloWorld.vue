@@ -24,7 +24,7 @@
 import Test from './Test'
 import Brother from './Brother'
 import PageTest from './PageTest'
-
+import {getUtilFn} from '@/util'
 import dayjs from 'dayjs'
 
 export default {
@@ -38,7 +38,12 @@ export default {
   },
   computed: {
     a(){
-      console.log(dayjs().format())
+      let {test,test2} = getUtilFn(['test','test2'], (item, cip)=>{
+        return cip(require(`@/bus/${item}.js`))
+      })
+      console.log(test,'ccccccc',test2)
+
+      // console.log(dayjs().format())
       window.dayjs = dayjs
       return dayjs().format();
     }
