@@ -7,6 +7,7 @@
     <div>
       <p v-on:click='jump'>this.$router.push() 跳转到嵌套路由(嵌套路由的父组件)</p>
       <router-link v-bind:to="{name: 'TextDes',params: {id: 99999999}}">跳转到嵌套路由(嵌套路由的父组件)</router-link>
+      <router-link v-bind:to="{name: 'TestTwo',params: {id: 99999999}}">静态资源测试 路由 TestTwo</router-link>
       <!-- <router-link :to="{name: 'TextDes',params: {id: 99999999}}">跳转到嵌套路由(嵌套路由的父组件)</router-link> -->
     </div>
      <div v-if="Math.random()>0.5">afdfdsg g</div>

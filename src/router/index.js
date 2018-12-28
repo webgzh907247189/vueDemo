@@ -1,10 +1,17 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
-import TextDes from '@/components/Text'
+// import TextDes from '@/components/Text'
+const TextDes = (resolve) => require(['@/components/Text'],resolve)
+
+
 import Children from '@/components/Children'
 import ChildrenTwo from '@/components/ChildrenTwo'
-import TestTwo from '@/components/TestTwo'
+
+// import TestTwo from '@/components/TestTwo'
+// const TestTwo = () => require('@/components/TestTwo')
+
+
 import Testt from '@/components/Test'
 import Shop from '@/components/Shopping'
 import ShopCar from '@/components/ShopCar'
@@ -27,13 +34,14 @@ export default new Router({
       name: 'HelloWorld',
       components: {
         default: HelloWorld,
-        Test: TestTwo
+        Test: (resolve) => require(['@/components/TestTwo'],resolve)//TestTwo
       }
     },
     {
     	path: '/textdes/:id',
     	name: 'TextDes',
-    	component: TextDes,
+      component: TextDes,
+      // component: (resolve) => require(['@/components/Text'],resolve),
       children: [
         {
           path: 'children',
@@ -51,6 +59,7 @@ export default new Router({
       path: '/TestTwo',
       name: 'TestTwo',
       component: (resolve) => require(['@/components/TestTwo'],resolve)
+      // component: TestTwo
     },
     {
       path: '/shopping',
