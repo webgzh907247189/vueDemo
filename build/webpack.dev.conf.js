@@ -79,7 +79,9 @@ const devWebpackConfig = merge(baseWebpackConfig, {
         to: config.dev.assetsSubDirectory,
         ignore: ['.*']
       }
-    ])
+    ]),
+    new webpack.IgnorePlugin(/.md$/, /lodash$/),
+    new webpack.IgnorePlugin(/LICENSE$/, /lodash$/)
   ]
 })
 

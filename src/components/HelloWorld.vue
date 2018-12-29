@@ -43,7 +43,26 @@ export default {
       })
       console.log(test,'ccccccc',test2)
 
-      // console.log(dayjs().format())
+      let {find,forEach} = getUtilFn(['find','forEach'], (item, cip)=>{
+        return cip(require('lodash/'+item))
+      })
+
+    
+      console.log(find,'bbb',forEach)
+
+      var users = [
+        { 'user': 'barney',  'age': 36, 'active': true },
+        { 'user': 'fred',    'age': 40, 'active': false },
+        { 'user': 'pebbles', 'age': 1,  'active': true }
+      ];
+      
+      let r1 = find(users, function(o) { return o.age < 40; });
+      console.log(r1,'r1')
+
+      forEach(users, function(value) {
+        console.log(value);
+      });
+  
       window.dayjs = dayjs
       return dayjs().format();
     }
