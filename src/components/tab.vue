@@ -78,7 +78,8 @@ export default {
              * 向上传播 name 属性值
              */
             this.$emit('input',name)
-            this.$emit('on-click',name)
+            
+            // this.$emit('on-click',name)
         }
     },
     watch: {
