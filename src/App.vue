@@ -16,6 +16,57 @@ export default {
       ext: 'png',
       extjpg: 'jpg'
     }
+  },
+  created(){
+    this.getPromise(['/api/address','/api/goods'])
+  },
+  methods:{
+    // async getPromise(dataSet){
+    //   const pokemonPromises = dataSet.map(urlItem => {
+    //       return this.axios.get(`${urlItem}`)
+    //   })
+
+    //   console.log(pokemonPromises,'pokemonPromises')
+    //   const results = await Promise.all(pokemonPromises)
+
+    //   console.log(results,'results')
+    // }
+
+    async getPromise(dataSet){
+      const pokemonPromises = dataSet.map(urlItem => {
+          return this.axios.get(`${urlItem}`)
+      })
+
+      console.log(pokemonPromises,'pokemonPromises')
+      const results = await Promise.all(dataSet.map(urlItem => {
+          return this.axios.get(`${urlItem}`)
+      }))
+
+      console.log(results,'results')
+    },
+    promiseTest(){
+
+      function a(){
+        return new Promise((resolve,reject)=>{
+          setTimeout(()=>{
+            resolve(1)
+          },1000)
+        })
+      }
+
+      function b(){
+        return new Promise((resolve,reject)=>{
+          setTimeout(()=>{
+            resolve(2)
+          },2000)
+        })
+      }
+
+      Promise.all([a(),b()]).then((d)=>{
+        console.log(d,'ddd')   //  [1, 2] "ddd"  (Promise.all里面放的数组，函数要运行)
+      })
+
+    }
   }
 }
 </script>
