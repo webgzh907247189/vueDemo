@@ -29,3 +29,5 @@ function getUtilFn(list = [], callback = () => {}, action = {
 // import get from 'lodash/get'
 
 export {setCookie,getCookie,getUtilFn}
+
+export default {setCookie,getCookie,getUtilFn}

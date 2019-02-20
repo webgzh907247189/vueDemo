@@ -9,6 +9,13 @@
 </template>
 
 <script>
+
+import obj from './util'
+import {getCookie} from './util'
+console.log(obj,'obj',getCookie)
+
+
+
 export default {
   name: 'app',
   data(){
