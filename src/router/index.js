@@ -24,6 +24,7 @@ import functional from '@/components/functional'
 import talklist from '@/components/talklist'
 import table from '@/components/table'
 import nonRenderingComponent from '@/components/nonRenderingComponent'
+import nonRenderingComponent2 from '@/components/nonRenderingComponent2'
 
 Vue.use(Router)
 
@@ -121,6 +122,11 @@ export default new Router({
       path: '/nonRenderingComponent',
       name: 'nonRenderingComponent',
       component: nonRenderingComponent
+    },
+    {
+      path: '/nonRenderingComponent2',
+      name: 'nonRenderingComponent2',
+      component: nonRenderingComponent2
     }
   ]
 })
