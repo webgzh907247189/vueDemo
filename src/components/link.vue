@@ -13,9 +13,9 @@
         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         <inputele/>
         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        <test>
+        <testSlot>
             <div>this is slot</div>
-        </test>
+        </testSlot>
         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         <test1>
             <div slot="slot1">this is slot1</div>
@@ -132,8 +132,9 @@ Vue.component('inputele',{
     }
 })
 
-Vue.component('test',{
+Vue.component('testSlot',{
     render(h){        
+        console.log(this.$slots.default,'this.$slots.default')
         return h(
             'div',
             [
