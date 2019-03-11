@@ -10,7 +10,9 @@
         <childTest>
             <div slot-scope="user">
                 <div class="tmpl">
-                    <div v-for="item in user.data">{{item}}</div>
+                    <div v-for="(item,index) in user.data" :key=index>
+                        <span >{{item}}</span>
+                    </div>
                 </div>
             </div>
         </childTest>
