@@ -1,11 +1,19 @@
 <template>
     <div>
         <s-axios url="https://api.github.com/orgs/reactjs/repos">
-            <div slot-scope="{ loading, response }" slot="">
+            <div slot-scope="{ loading, response, }" slot="">
                 <div v-if="loading">loading</div>
                 <div v-else>响应数据为 ->  {{ response.data[0] }}</div>
             </div>
         </s-axios>
+
+        <childTest>
+            <div slot-scope="user">
+                <div class="tmpl">
+                    <div v-for="item in user.data">{{item}}</div>
+                </div>
+            </div>
+        </childTest>
     </div>
 </template>
 
@@ -40,6 +48,17 @@ Vue.component('sAxios',{
 })
 
 
+Vue.component('childTest',{
+    template: `<div>
+            <h3>这里是子组件</h3>
+            <slot :data="data"></slot>
+        </div>`,
+    data() {
+        return {
+           data: ['zhangsan','lisi','wanwu','zhaoliu','tianqi','xiaoba'],
+        }
+    }
+})
 
 
 
@@ -47,6 +66,7 @@ export default {
     name: 'nonRenderingComponent2',
     data(){
         return {
+            name: '111'
         }
     }
 }
