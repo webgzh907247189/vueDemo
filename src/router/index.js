@@ -25,6 +25,8 @@ import talklist from '@/components/talklist'
 import table from '@/components/table'
 import nonRenderingComponent from '@/components/nonRenderingComponent'
 import nonRenderingComponent2 from '@/components/nonRenderingComponent2'
+import slotTest from '@/components/slotTest'
+
 
 Vue.use(Router)
 
@@ -127,6 +129,11 @@ export default new Router({
       path: '/nonRenderingComponent2',
       name: 'nonRenderingComponent2',
       component: nonRenderingComponent2
-    }
+    },
+    {
+      path: '/slotTest',
+      name: 'slotTest',
+      component: slotTest
+    },
   ]
 })
