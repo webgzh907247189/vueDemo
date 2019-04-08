@@ -13,7 +13,7 @@
         </table>
         
         <table>
-            <tbody is="tableTest"  :data="test">
+            <tbody :is="tableTestComponent"  :data="test">
                 <th>
                     <td>22</td>
                 </th>
@@ -31,7 +31,8 @@ export default {
     name: 'dataComponent',
     data(){
         return {
-            test: ['aa','bb']
+            test: ['aa','bb'],
+            tableTestComponent: 'tableTest'
         }
     },
     methods:{
@@ -44,6 +45,7 @@ Vue.component('dataTest',{
         return dataObj
     }
 })
+
 Vue.component('tableTest',{
     template: `<div>{{testData}}</div>`,
     props: ['data'],

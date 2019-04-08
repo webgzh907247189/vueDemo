@@ -23,7 +23,12 @@ import link from '@/components/link'
 import functional from '@/components/functional'
 import talklist from '@/components/talklist'
 import table from '@/components/table'
+
 import dataComponent from '@/components/dataComponent'
+import nonRenderingComponent from '@/components/nonRenderingComponent'
+import nonRenderingComponent2 from '@/components/nonRenderingComponent2'
+import slotTest from '@/components/slotTest'
+import inputComponent from '@/components/inputComponent'
 
 Vue.use(Router)
 
@@ -121,6 +126,26 @@ export default new Router({
       path: '/dataComponent',
       name: 'dataComponent',
       component: dataComponent
+    },
+{
+      path: '/nonRenderingComponent',
+      name: 'nonRenderingComponent',
+      component: nonRenderingComponent
+    },
+    {
+      path: '/nonRenderingComponent2',
+      name: 'nonRenderingComponent2',
+      component: nonRenderingComponent2
+    },
+    {
+      path: '/slotTest',
+      name: 'slotTest',
+      component: slotTest
+    },
+    {
+      path: '/inputComponent',
+      name: 'inputComponent',
+      component: inputComponent
     },
   ]
 })

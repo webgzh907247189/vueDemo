@@ -49,13 +49,16 @@ export default {
                     name: item.name || index
                 })
 
-                if(!item.name){
-                    item.name = index
-                }
+                // 多余代码
+                // if(!item.name){
+                //     item.name = index
+                // }
 
                 if(index == 0){
                     if(!this.currentValue){
-                        this.currentValue == item.name || index
+                        // 多余代码
+                        // this.currentValue == item.name || index
+                        this.currentValue == item.name
                     }
                 }
             })
