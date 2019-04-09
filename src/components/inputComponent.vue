@@ -24,7 +24,7 @@ export default {
 
 Vue.component('numberInputComponent',{
     template: `<div>
-        <input type="text" :value="currentValue" @change="onInputChange"/>{{currentValue}}
+        <input type="text" :value="currentValue" @change.trim="onInputChange"/>{{currentValue}}
         <span class="add" @click="add">+</span>
         <span class="jian" @click="jian">-</span>
     </div>`,
@@ -50,7 +50,11 @@ Vue.component('numberInputComponent',{
             this.currentValue += 1
         },
         onInputChange(e){
-            let val = e.target.value.trim()
+            // let val = e.target.value.trim()
+            /** 已经使用 .trim 修饰符了  无需trim 一次 */
+            let val = e.target.value
+
+
             val = Number(val)
 
             if(isNumber(val)){
