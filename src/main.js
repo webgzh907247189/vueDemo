@@ -30,11 +30,11 @@ Vue.filter('money',(value,type)=>{
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
+  // el: '#app',
   router,
   template: '<App/>',
   components: { App }
-})
+}).$mount('#app')
 
 // http://www.cnblogs.com/kongxianghai/p/6732429.html
 // ctrl+shirt+p -> pakeage install  -> vue Component

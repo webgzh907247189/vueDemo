@@ -8,8 +8,6 @@
 </template>
 
 <script>
-import Bus from '@/bus/bus.js'
-import Tab from './tab' 
 export default {
     name: 'pane',
     props: ['label','name'],
@@ -30,9 +28,6 @@ export default {
     },
     mounted(){
         // this.updateNav()
-    },
-    components: {
-        Tab
     }
 }
 </script>
