@@ -16,6 +16,10 @@
                 </div>
             </div>
         </childTest>
+        <span>
+            祖孙组件测试
+            <event-test v-on:children="reciveRocket"></event-test>
+        </span>
     </div>
 </template>
 
@@ -62,7 +66,51 @@ Vue.component('childTest',{
     }
 })
 
-
+Vue.component('eventTest',{
+    template : `<div>{{name}}
+        <event-father v-on="$listeners"></event-father>
+    </div>`,
+    data(){
+        return {
+            name: '爷爷组件'
+        }
+    },
+    created(){
+        console.log(this.$listeners,'this.$listeners 爷爷组件')
+    }
+})
+Vue.component('eventFather',{
+    template : `<div>{{name}}
+        <event-children v-on="$listeners"></event-children>
+    </div>`,
+    data(){
+        return {
+            name: '父亲组件'
+        }
+    },
+    created(){
+        console.log(this.$listeners,'this.$listeners 父亲组件')
+    }
+})
+Vue.component('eventChildren',{
+    template : `<div>{{name}}
+        <span @click="onChildren">111</span>
+    </div>`,
+    data(){
+        return {
+            name: '孙子组件'
+        }
+    },
+    methods:{
+        onChildren(){
+            console.log('孙子组件')
+            this.$emit('children','onChildren')
+        }
+    },
+    created(){
+        console.log(this.$listeners,'this.$listeners 孙子组件')
+    }
+})
 
 export default {
     name: 'nonRenderingComponent2',
@@ -70,6 +118,14 @@ export default {
         return {
             name: '111'
         }
+    },
+    methods:{
+        reciveRocket(e){
+            console.log('事件往上传递222',e)
+        }
+    },
+    created(){
+        console.log(this.$listeners,'this.$listeners 总组件')
     }
 }
 </script>
