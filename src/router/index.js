@@ -30,6 +30,8 @@ import nonRenderingComponent2 from '@/components/nonRenderingComponent2'
 import slotTest from '@/components/slotTest'
 import inputComponent from '@/components/inputComponent'
 
+import collapseContainer from '@/components/collapseContainer'
+
 Vue.use(Router)
 
 export default new Router({
@@ -146,6 +148,11 @@ export default new Router({
       path: '/inputComponent',
       name: 'inputComponent',
       component: inputComponent
+    },
+    {
+      path: '/collapseContainer',
+      name: 'collapseContainer',
+      component: collapseContainer
     },
   ]
 })

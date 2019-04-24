@@ -1,7 +1,7 @@
 <template>
     <div>
         <div :class="tabCls(item)" v-for="(item,index) in navList" @click="handleChange(index)" :key=index>
-            {{item.label}}
+            {{item.label}}--{{currentValue}}
         </div>
         <div class="tab-content">
             <slot></slot>
@@ -17,7 +17,7 @@ export default {
     data(){
         return {
             navList: [],
-            currentValue: this.value
+            // currentValue: this.value
         }
     },
     methods:{
@@ -75,13 +75,12 @@ export default {
             let name = nav.name
 
             this.currentValue = name
-
-
             /**
              * 向上传播 name 属性值
              */
-            this.$emit('input',name)
+            // this.$emit('input',name)
             
+            // 多余代码
             // this.$emit('on-click',name)
         }
     },
@@ -89,8 +88,19 @@ export default {
         currentValue(){
             this.updateNavStatus()
         },
-        value(value){
-            this.currentValue = value
+        // value(value){
+        //     this.currentValue = value
+        // }
+    },
+    computed: {
+        currentValue: {
+            get(){
+                console.log(this.value,'?????????/')
+                return this.value
+            },
+            set(value){
+                this.$emit('input',value)
+            }
         }
     }
 }
