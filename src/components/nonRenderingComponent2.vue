@@ -20,6 +20,28 @@
             祖孙组件测试
             <event-test v-on:children="reciveRocket"></event-test>
         </span>
+        
+        <!-- 每次切换时，输入框都将被重新渲染。注意，<label> 元素仍然会被高效地复用，因为它们没有添加 key 属性。 -->
+        <template v-if="loginType === 'username'">
+            <label>Username</label>
+            <input placeholder="Enter your username" key="username-input">
+        </template>
+        <template v-else>
+            <label>Email</label>
+            <input placeholder="Enter your email address" key="email-input">
+        </template>
+
+        <div id='example-3'>
+            复选框组
+            <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+            <label for="jack">Jack</label>
+            <input type="checkbox" id="john" value="John" v-model="checkedNames">
+            <label for="john">John</label>
+            <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+            <label for="mike">Mike</label>
+            <br>
+            <span>Checked names: {{ checkedNames }}</span>
+        </div>
     </div>
 </template>
 
@@ -116,12 +138,15 @@ export default {
     name: 'nonRenderingComponent2',
     data(){
         return {
-            name: '111'
+            name: '111',
+            loginType: 'username',
+            checkedNames: []
         }
     },
     methods:{
         reciveRocket(e){
             console.log('事件往上传递222',e)
+            this.loginType = ''
         }
     },
     created(){
