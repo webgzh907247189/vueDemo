@@ -13,7 +13,11 @@
 import Bus from '@/bus/bus.js'
 export default {
     name: 'tab',
-    props: ['value'],
+    model:{
+        prop: 'abValue',
+        event: 'abInput'
+    },
+    props: ['abValue'],
     data(){
         return {
             navList: [],
@@ -95,11 +99,11 @@ export default {
     computed: {
         currentValue: {
             get(){
-                console.log(this.value,'?????????/')
-                return this.value
+                console.log(this.abValue,'?????????/')
+                return this.abValue
             },
             set(value){
-                this.$emit('input',value)
+                this.$emit('abInput',value)
             }
         }
     }
