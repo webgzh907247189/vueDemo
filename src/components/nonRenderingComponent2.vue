@@ -8,7 +8,7 @@
         </s-axios>
 
         <childTest>
-            <div slot-scope="user">
+            <div slot-scope="user" class="11">
                 <div class="tmpl">
                     <div v-for="(item,index) in user.data" :key=index>
                         <span >{{item}}</span>

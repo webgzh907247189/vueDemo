@@ -15,14 +15,9 @@
 import Vue from 'vue'
 Vue.component('theme',{
     inheritAttrs:false,
-    data() {
-        return {
-        }
-    },
-
+    // props:['pos','radius','size','borderWidth','borderColor'],
     render(h) {
         const theme = this.$attrs // 通过 $attrs 可以拿到使用该组件时定义的 props，而无需声明有哪些 props (父组件传递了属性值，但是子组件并未使用)
-
         const merge = vNode => {
             if (!vNode.tag) {
                 return
@@ -46,7 +41,7 @@ Vue.component('theme',{
         this.$slots.default.map(vNode => merge(vNode))
 
         /**
-         * 当在子组件中加入inheritAttrs:false时a属性就不会自动加到根元素上了 (父组件传递下来的值,但是未被使用 -> 此时不在根元素上面显示)
+         * 当在子组件中加入inheritAttrs:false时 属性就不会自动加到根元素上了 (父组件传递下来的值,但是未被使用 -> 此时不在根元素上面显示)
          * 
          * this.$attrs 存储非prop特性 (存储没有在props声明的属性,但是被传递下来的属性 -> 未被使用)
          */
@@ -61,7 +56,7 @@ Vue.component('theme',{
 
 
 Vue.component('someComponent',{
-    template: `<div>
+    template: `<div class="test">{{$attrs}}??
             <div>{{ testData.name }}</div>
             <div>{{ this.testData }}</div>
             <div>title   ->   {{ this.title }}</div>
