@@ -1,6 +1,7 @@
 <template>
   	<div class="hello" v-clickoutside="handleclose">
-      	<ClickOutsideHead @outsideHeadClick="headClick">
+      	<ClickOutsideHead @outsideHeadClick="headClick" :testSyncTest.sync="testSync">
+              {{testSync}}父组件
       		<ClickOutsideContent v-show="show">
       			8888888888888888
       		</ClickOutsideContent>
@@ -101,7 +102,8 @@ export default {
   	name: 'ClickOutside',
   	data(){
   		return {
-  			show: false
+            show: false,
+            testSync: '1111'
   		}
   	},
   	components: {
@@ -115,7 +117,12 @@ export default {
    		handleclose(){
    			this.show = false
    		}
-  	}
+    },
+    watch: {
+        testSync(val){
+            console.log('父组件的值：', val,'this.testSync ->',this.testSync)
+        }
+    }
 }
 </script>
 

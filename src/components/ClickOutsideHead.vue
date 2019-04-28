@@ -6,12 +6,16 @@
     	<slot>
       	
      	</slot>
+        <div @click="testSyncTestClick">
+            {{testSyncTest}} 子组件
+        </div>
   	</div>
 </template>
 
 <script>
 export default {
-  	name: 'ClickOutsideHead',
+    name: 'ClickOutsideHead',
+    props: ['testSyncTest'],
   	data(){
   		return {
   			timeNow: 1539193587165,
@@ -21,8 +25,17 @@ export default {
   	methods: {
   		headClick(){
   			this.$emit('outsideHeadClick')
-  		}
-  	}
+        },
+        testSyncTestClick(){
+            console.log('this.testSyncTest -> ',this.testSyncTest,'111')
+            this.$emit('update:testSyncTest','99999999999999')
+        }
+      },
+      wathch: {
+        testSyncTest(val){
+            console.log('this.testSyncTest -> ',this.testSyncTes,'val',val)
+        }
+      }
 }
 </script>
 
