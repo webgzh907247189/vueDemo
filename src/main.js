@@ -19,8 +19,24 @@ import './../static/reset.css'
 Vue.use(VueLazyLoad,{
 	loading: '/static/nv.jpg'
 })
+
+
+
+/**
+ * https://juejin.im/post/5cf5c3b56fb9a07ee85c1588
+ * Init：创建组件实例需要的时间
+ * Render：创建VDom结构需要的时间
+ * Patch：把VDom应用到实际Dom的时间
+ */
+const isDev = process.env.NODE_ENV !== "production";
+Vue.config.performance = isDev;
+
+
 Vue.prototype.axios = axios
 Vue.config.productionTip = false
+
+
+
 Vue.filter('formatMoney', function (value) {
 	return `￥ ${value.toFixed(2)}`
 })
