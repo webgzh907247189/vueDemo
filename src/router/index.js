@@ -32,6 +32,8 @@ import inputComponent from '@/components/inputComponent'
 
 import collapseContainer from '@/components/collapseContainer'
 
+import vuepropsProvide from '@/components/vuepropsProvide'
+
 Vue.use(Router)
 
 export default new Router({
@@ -129,7 +131,7 @@ export default new Router({
       name: 'dataComponent',
       component: dataComponent
     },
-{
+    {
       path: '/nonRenderingComponent',
       name: 'nonRenderingComponent',
       component: nonRenderingComponent
@@ -153,6 +155,11 @@ export default new Router({
       path: '/collapseContainer',
       name: 'collapseContainer',
       component: collapseContainer
+    },
+    {
+      path: '/vuepropsProvide',
+      name: 'vuepropsProvide',
+      component: vuepropsProvide
     },
   ]
 })
