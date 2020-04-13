@@ -28,6 +28,23 @@ function getUtilFn(list = [], callback = () => {}, action = {
 
 // import get from 'lodash/get'
 
-export {setCookie,getCookie,getUtilFn}
 
-export default {setCookie,getCookie,getUtilFn}
+// 子路由
+
+function getRoute(){
+    const pathList = require.context('./module', false, /\.js$/);
+
+    const pathKeysList = pathList.keys();
+    return pathKeysList.reduce((result, itemPath) => {
+        const resultPathObj = result;
+
+        const itemModule = itemPath.slice(2, -3);
+        resultPathObj[itemModule] = pathList(itemPath).default || {};
+        return resultPathObj;
+    }, Object.create(null));
+}
+const routerObj = getRoute();
+
+export {setCookie,getCookie,getUtilFn, routerObj };
+
+export default {setCookie,getCookie,getUtilFn, routerObj };
