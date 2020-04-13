@@ -27,6 +27,24 @@ export default {
   },
   created(){
     this.getPromise(['/api/address','/api/goods'])
+
+    let MyWorker = require("worker-loader!./work/1.work.js");
+    let worker = new MyWorker();
+    worker.postMessage({a: 1});
+    worker.onmessage = function(event) { /* 操作 */
+      console.log('work线程发送的消息', event.data)
+    };
+    
+    worker.addEventListener("message", function(event) { /* 操作 */ });
+
+    worker.addEventListener('error', function (e) {
+      // Worker 内部的 js 在执行过程中只要遇到错误，就会触发 error 事件。
+      // 发生 error 事件时，事件对象中包含三个属性：filename, lineno 和 message，
+      // 分别表示发生错误的文件名、代码行号和完整的错误消息。
+    });
+
+    // 终止工作线程
+    // worker.terminate();
   },
   methods:{
     // async getPromise(dataSet){

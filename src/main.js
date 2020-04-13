@@ -54,3 +54,33 @@ new Vue({
 
 // http://www.cnblogs.com/kongxianghai/p/6732429.html
 // ctrl+shirt+p -> pakeage install  -> vue Component
+
+
+
+// 只会向上通知
+Vue.prototype.$dispatch = function(eventName,val){
+  let parent = this.$parent
+  while(parent){
+      parent.$emit(eventName,val)
+      parent = parent.$parent
+  }
+}
+
+// 只会向下通知
+Vue.prototype.$broadcast = function(eventName,val){
+  let children = this.$children
+
+  // forEach 跳过不必要的循环[,,undefined,1] => 只有undefined,1 
+  let broadcast = (children) =>{
+      children.forEach((item)=>{
+          item.$emit(eventName,val)
+
+          if(item.$children){
+              broadcast(item.$children)
+          }
+
+      })   
+  }
+
+  broadcast(children)
+}

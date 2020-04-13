@@ -26,6 +26,7 @@ module.exports = {
   },
   output: {
     path: config.build.assetsRoot,
+    // globalObject: 'this',
     filename: '[name].js',
     publicPath: process.env.NODE_ENV === 'production'
       ? config.build.assetsPublicPath
@@ -74,7 +75,20 @@ module.exports = {
           limit: 10000,
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
-      }
+      },
+      {
+        // 匹配 *.worker.js
+        test: /\.worker\.js$/,
+        use: {
+          loader: 'worker-loader',
+          options: {
+            // name: '[name]:[hash:8].js',
+            // inline: true,
+            // fallback: true,
+            publicPath: '/scripts/workers/'
+          }
+        }
+      },
     ]
   },
   node: {
