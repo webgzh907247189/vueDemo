@@ -48,3 +48,30 @@ const routerObj = getRoute();
 export {setCookie,getCookie,getUtilFn, routerObj };
 
 export default {setCookie,getCookie,getUtilFn, routerObj };
+
+
+
+{
+    const compose = (...fns) => fns.reduce((a, b) => (...args) => a(b(...args)));
+
+    const curry = (fn, ...args) => {
+        if (args.length >= fn.length) {
+            const realArgs = args.pop();
+            return fn(realArgs, ...args);
+        }
+
+        return (...runArgs) => curry(fn, ...args, ...runArgs);
+    };
+
+    const importAll = (requireContext) => requireContext.keys();
+
+    const getRequireObj = (pathList, sliceStart, sliceEnd, reqCtxPathList) => {
+        return pathList.reduce((resultObj, itemPath) => {
+            const objCombine = resultObj;
+            const itemModule = itemPath.slice(sliceStart, sliceEnd);
+
+            objCombine[itemModule] = reqCtxPathList(itemPath).default ?? {};
+            return objCombine;
+        }, Object.create(null));
+    };
+}
