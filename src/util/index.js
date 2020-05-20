@@ -43,11 +43,11 @@ function getRoute(){
         return resultPathObj;
     }, Object.create(null));
 }
-const routerObj = getRoute();
+// const routerObj = getRoute();
 
-export {setCookie,getCookie,getUtilFn, routerObj };
+export {setCookie,getCookie,getUtilFn };
 
-export default {setCookie,getCookie,getUtilFn, routerObj };
+export default {setCookie,getCookie,getUtilFn };
 
 
 
@@ -74,4 +74,9 @@ export default {setCookie,getCookie,getUtilFn, routerObj };
             return objCombine;
         }, Object.create(null));
     };
+
+    const pathList = require.context('./module', false, /\.js$/);
+    const getRequireObjFn = curry(getRequireObj)(2, -3)(pathList);
+    // const routerObj = compose(getRequireObjFn, importAll)(pathList);
+
 }
