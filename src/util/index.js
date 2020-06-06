@@ -80,3 +80,21 @@ export default {setCookie,getCookie,getUtilFn };
     // const routerObj = compose(getRequireObjFn, importAll)(pathList);
 
 }
+
+
+{
+    // uidKey: 1,
+    // uidMap: new WeakMap(),
+    function getOnlyKey(item) {
+        if (!this.uidMap.has(item)) {
+            this.uidMap.set(item, this.uidKey++);
+        }
+        return this.uidMap.get(item);
+    }
+
+    // new WeakMap()
+    // 使用 WeakMap 装载对象 key，当这个对象被移除，不会造成内存泄露
+    // 1. WeakMap只接受对象作为键名（ null 除外），不接受其他类型的值作为键名。
+    // 2. WeakMap的键名所指向的对象是弱引用，不计入垃圾回收机制。
+    // 3.重点在于 如果删除了WeakMap的键名所指向的对象，无需手动删除应用
+}
