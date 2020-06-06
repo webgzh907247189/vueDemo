@@ -83,6 +83,7 @@ export default {setCookie,getCookie,getUtilFn };
 
 
 {
+    // https://juejin.im/post/5cdaca49518825686a070160
     // uidKey: 1,
     // uidMap: new WeakMap(),
     function getOnlyKey(item) {
