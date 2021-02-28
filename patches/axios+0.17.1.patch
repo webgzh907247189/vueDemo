@@ -1,0 +1,12 @@
+diff --git a/node_modules/axios/lib/axios.js b/node_modules/axios/lib/axios.js
+index ed1f519..e30f4b7 100644
+--- a/node_modules/axios/lib/axios.js
++++ b/node_modules/axios/lib/axios.js
+@@ -29,6 +29,7 @@ var axios = createInstance(defaults);
+ 
+ // Expose Axios class to allow class inheritance
+ axios.Axios = Axios;
++axios.name111 = 'gzh';
+ 
+ // Factory for creating new instances
+ axios.create = function create(instanceConfig) {

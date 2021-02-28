@@ -14,6 +14,7 @@ import obj from './util'
 import {getCookie} from './util'
 console.log(obj,'obj',getCookie)
 
+// 使用Vue.observable 响应式数据变化，当store使用
 
 
 export default {
