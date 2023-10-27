@@ -16,7 +16,7 @@
     "postinstall": "patch-package"
   },
   "dependencies": {
-    "axios": "^0.17.1",
+    "axios": "^1.6.0",
     "dayjs": "^1.7.8",
     "lodash": "^4.17.11",
     "lodash-es": "^4.17.11",
